@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin tài khoản - Hệ thống bệnh viện</title>
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/userinfo.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <script src="../js/app.js"></script>
+</head>
+<body>
+<div class="sidenav">
+    <a href="bookSchedule.html">Đặt lịch</a>
+    <a href="UserInfo.html" class="active">Thông tin cá nhân</a>
+    <a href="detailSchedule.html">Xem danh sách lịch hẹn</a>
+</div>
+<div class="main-content">
+    <div class="container">
+        <h1>Thông tin tài khoản</h1>
+        <div class="info">
+            <div class="field">
+                <span class="label">ID Đăng nhập:</span>
+                <span class="value" id="login_id"></span>
+            </div>
+            <div class="field">
+                <span class="label">Tên người dùng:</span>
+                <span class="value" id="username"></span>
+            </div>
+            <div class="field">
+                <span class="label">Số điện thoại:</span>
+                <span class="value" id="phone_number"></span>
+            </div>
+            <div class="field">
+                <span class="label">Địa chỉ:</span>
+                <span class="value" id="address"></span>
+            </div>
+            <div class="field">
+                <span class="label">Giới tính:</span>
+                <span class="value" id="gender"></span>
+            </div>
+            <div class="field">
+                <span class="label">Ngày sinh:</span>
+                <span class="value" id="dob"></span>
+            </div>
+            <div class="field">
+                <span class="label">Loại người dùng:</span>
+                <span class="value" id="user_type"></span>
+            </div>
+            <div class="field hidden" id="specialty-field">
+                <span class="label">Chuyên ngành:</span>
+                <span class="value" id="specialty"></span>
+            </div>
+            <div class="field hidden" id="degree-field">
+                <span class="label">Trình độ:</span>
+                <span class="value" id="degree"></span>
+            </div>
+        </div>
+        <div class="button-container">
+            <button id="edit-button">Chỉnh sửa thông tin</button>
+            <button id="change-password-button">Đổi mật khẩu</button>
+            <button id="logout-button">Đăng xuất</button>
+        </div>
+    </div>
+</div>
+
+<div id="edit-popup" class="popup hidden">
+    <div class="popup-content">
+        <span class="close-button">&times;</span>
+        <h2>Chỉnh sửa thông tin</h2>
+        <form id="edit-form">
+            <div class="form-group">
+                <label for="edit-login_id">ID Đăng nhập:</label>
+                <input type="text" id="edit-login_id" name="login_id" disabled>
+            </div>
+            <div class="form-group">
+                <label for="edit-last_name">Họ:</label>
+                <input type="text" id="edit-last_name" name="last_name" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-mid_name">Tên đệm:</label>
+                <input type="text" id="edit-mid_name" name="mid_name">
+            </div>
+            <div class="form-group">
+                <label for="edit-first_name">Tên:</label>
+                <input type="text" id="edit-first_name" name="first_name" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-phone_number">Số điện thoại:</label>
+                <input type="text" id="edit-phone_number" name="phone_number">
+            </div>
+            <div class="form-group">
+                <label for="edit-noHouse">Số nhà:</label>
+                <input type="text" id="edit-noHouse" name="noHouse" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-street">Đường:</label>
+                <input type="text" id="edit-street" name="street" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-district">Quận/Huyện:</label>
+                <input type="text" id="edit-district" name="district" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-city">Thành phố:</label>
+                <input type="text" id="edit-city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-country">Quốc gia:</label>
+                <input type="text" id="edit-country" name="country" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-gender">Giới tính:</label>
+                <select id="edit-gender" name="gender">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="edit-dob">Ngày sinh:</label>
+                <input type="date" id="edit-dob" name="dob">
+            </div>
+            <div class="form-group hidden" id="edit-specialty-group">
+                <label for="edit-specialty">Chuyên ngành:</label>
+                <input type="text" id="edit-specialty" name="specialty">
+            </div>
+            <div class="form-group hidden" id="edit-degree-group">
+                <label for="edit-degree">Trình độ:</label>
+                <input type="text" id="edit-degree" name="degree">
+            </div>
+            <button type="submit">Lưu thay đổi</button>
+        </form>
+    </div>
+</div>
+
+<script src="../js/userinfo.js"></script>
+</body>
+</html>

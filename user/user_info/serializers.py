@@ -25,9 +25,6 @@ class UserSerializer(serializers.ModelSerializer):
             'id', 'username', 'password', 'fullname', 'address', 'gender', 'dob', 'phone_number', 'user_type',
             'login_id')
         read_only_fields = ['login_id']
-        extra_kwargs = {
-            'password': {'write_only': True},
-        }
 
     def create(self, validated_data):
         password = validated_data.pop('password', None)
@@ -55,21 +52,24 @@ class UserSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         password = validated_data.pop('password', None)
-        fullname = validated_data.get('fullname', None)
-        address = validated_data.get('address', None)
+        fullname_data = validated_data.pop('fullname', None)
+        address_data = validated_data.pop('address', None)
 
-        if fullname:
-            if instance.fullname:
-                FullnameSerializer.update(FullnameSerializer(), instance=instance.fullname,
-                                          validated_data=fullname)
-            else:
-                instance.fullname = Fullname.objects.create(**fullname)
+        if fullname_data:
+            try:
+                fullname_instance = Fullname.objects.get(**fullname_data)
+            except Fullname.DoesNotExist:
+                fullname_instance = Fullname.objects.create(**fullname_data)
+            except Fullname.MultipleObjectsReturned:
+                fullname_instance = Fullname.objects.filter(**fullname_data).first()
 
-        if address:
-            if instance.address:
-                AddressSerializer.update(AddressSerializer(), instance=instance.address, validated_data=address)
-            else:
-                instance.address = Address.objects.create(**address)
+        if address_data:
+            try:
+                address_instance = Address.objects.get(**address_data)
+            except Address.DoesNotExist:
+                address_instance = Address.objects.create(**address_data)
+            except Address.MultipleObjectsReturned:
+                address_instance = Address.objects.filter(**address_data).first()
 
         for attr, value in validated_data.items():
             setattr(instance, attr, value)

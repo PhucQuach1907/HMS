@@ -6,5 +6,5 @@ from .serializers import AppointmentSerializer
 
 # Create your views here.
 class AppointmentViewSet(viewsets.ModelViewSet):
-    queryset = Appointment.objects.all()
+    queryset = Appointment.objects.all().order_by('-date', 'start_time')
     serializer_class = AppointmentSerializer

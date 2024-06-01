@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMS</title>
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+<div class="container">
+    <form id="register-form" action="/register" method="POST">
+        <h2>Đăng Ký Tài Khoản</h2>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="last_name">Họ:</label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="mid_name">Tên đệm:</label>
+        <input type="text" id="mid_name" name="mid_name">
+
+        <label for="first_name">Tên:</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <label for="noHouse">Số nhà:</label>
+        <input type="text" id="noHouse" name="noHouse" required>
+
+        <label for="street">Đường:</label>
+        <input type="text" id="street" name="street" required>
+
+        <label for="district">Quận/Huyện:</label>
+        <input type="text" id="district" name="district" required>
+
+        <label for="city">Thành phố:</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="country">Quốc gia:</label>
+        <input type="text" id="country" name="country" required>
+
+        <label for="gender">Giới tính:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Nam</option>
+            <option value="Female">Nữ</option>
+        </select>
+
+        <label for="dob">Ngày sinh:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="phone_number">Số điện thoại:</label>
+        <input type="tel" id="phone_number" name="phone_number" required>
+
+        <button type="submit">Đăng Ký</button>
+    </form>
+</div>
+<script src="../js/register.js"></script>
+</body>
+</html>

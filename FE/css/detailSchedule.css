@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container h1 {
+    text-align: center;
+  }
+  
+  .appointment {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .appointment .date,
+  .appointment .time,
+  .appointment .doctor,
+  .appointment .patient,
+  .appointment .status {
+    margin-bottom: 5px;
+  }
+  
+  .appointment .date,
+  .appointment .time {
+    font-weight: bold;
+  }
+  
+  .appointment .status {
+    font-style: italic;
+  }
+  
